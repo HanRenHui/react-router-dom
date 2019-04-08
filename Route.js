@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 export default class Route extends Component {
   static contextTypes = {
-    location: PropTypes.object
+    location: PropTypes.object,
+    history: PropTypes.object
   }
   render() {
     let { path, component: Component } = this.props
