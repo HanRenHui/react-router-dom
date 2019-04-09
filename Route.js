@@ -12,20 +12,11 @@ export default class Route extends Component {
     this.pathReg = pathToRegExp(props.path, keys, {end: false})
     // [id, age]
     this.keys = keys.map(key => key.name)
-    
-    
   }
   render() {
     let { path, component: Component } = this.props
     let { location: { pathname } } = this.context
-    // console.log(this.pathReg.test(pathname))
-    console.log(this.props.path);
-    
-    
     let result = pathname.match(this.pathReg)
-    // let result = this.pathReg.test(pathname)
-    // console.log(this.pathReg);
-    
     if (result) {
       let match = {
         path,
@@ -36,7 +27,6 @@ export default class Route extends Component {
           return pre
         }, {})
       }
-
       return <Component {...this.context} match={match}/>      
     } else {
       return null
